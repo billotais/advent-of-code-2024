@@ -37,7 +37,3 @@ for match in input.matches(of: dont_regex) {
 }
 
 print("Part 2 \(total_1 - to_remove)")
-
-
-
-
