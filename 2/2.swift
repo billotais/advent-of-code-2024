@@ -31,14 +31,14 @@ func check_safe_2(list: [Int]) -> Bool {
 
 
 // Parse the inpout into 2d array
-let input = try? String(contentsOf: URL(filePath: "2.txt"), encoding: String.Encoding.utf8)
+let input = (try? String(contentsOf: URL(filePath: "2.txt"), encoding: String.Encoding.utf8)) ?? ""
 
-let rows = input?.split(separator: "\n")
+let rows = input.split(separator: "\n")
 
 var safe_lists_1 = 0
 var safe_lists_2 = 0
 
-for row in rows! {
+for row in rows {
     let row_list = row.split(separator: " ").map { i in
         Int(i)!
     }

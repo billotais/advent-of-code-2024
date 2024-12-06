@@ -4,11 +4,11 @@ var first_list: [Int] = []
 var second_list: [Int] = []
 
 // Parse the numbers into two lists
-let input = try? String(contentsOf: URL(filePath: "1.txt"), encoding: String.Encoding.utf8)
+let input = (try? String(contentsOf: URL(filePath: "1.txt"), encoding: String.Encoding.utf8)) ?? ""
 
-let rows = input?.split(separator: "\n")
+let rows = input.split(separator: "\n")
 
-for row in rows! {
+for row in rows {
     let ab = row.split(separator: " ")
     let a = Int(ab[0])
     let b = Int(ab[1])
