@@ -39,7 +39,7 @@ func sort_sequence(_ numbers: [Int]) -> [Int] {
     }
 }
 
-func get_middle_element(_ numbers: [Int]) -> Int {
+func get_middle_element(of numbers: [Int]) -> Int {
     return numbers[(numbers.count-1)/2]
 }
 
@@ -50,17 +50,19 @@ for seq in sequences {
     let numbers = seq.split(separator: ",").map { Substring in
         Int(Substring)!
     }
-    if check_sequence(numbers) {
-        correct_sequences.append(numbers)
+
+    let sorted_numbers = sort_sequence(numbers)
+    if numbers == sorted_numbers {
+        correct_sequences.append(sorted_numbers)
     } else {
-        incorrect_sequences.append(numbers)
+        incorrect_sequences.append(sorted_numbers)
     }
 }
 
 
 var total_1 = 0
 for correct_sequence in correct_sequences {
-    total_1 = total_1 + get_middle_element(correct_sequence)
+    total_1 = total_1 + get_middle_element(of: correct_sequence)
 }
 
 
@@ -68,8 +70,7 @@ print("Part 1 \(total_1)")
 
 var total_2 = 0
 for incorrect_sequence in incorrect_sequences {
-    let sorted_sequence = sort_sequence(incorrect_sequence)
-    total_2 = total_2 + get_middle_element(sorted_sequence)
+    total_2 = total_2 + get_middle_element(of: incorrect_sequence)
 }
 print("Part 2 \(total_2)")
 
